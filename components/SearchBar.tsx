@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { View, TextInput, TouchableOpacity, Image } from "react-native";
+import { Image, TextInput, TouchableOpacity, View } from "react-native";
 
 interface SearchBarProps {
   placeholder: string;
   onSearch: (searchText: string) => void;
   searchIcon: any;
   clearIcon: any;
-  voiceIcon: any; // Voice icon
+  voiceIcon: any;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({
@@ -18,55 +18,43 @@ const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   const [searchText, setSearchText] = useState<string>("");
 
-  // Handle change in the search text
   const handleSearchTextChange = (text: string) => {
     setSearchText(text);
-    onSearch(text); // Call the onSearch prop function whenever search text changes
+    onSearch(text);
   };
 
-  // Clear the search text
   const clearSearch = () => {
     setSearchText("");
-    onSearch(""); // Trigger the onSearch function with an empty string when cleared
+    onSearch("");
   };
 
   return (
-    <View className="flex flex-row items-center p-4 rounded-lg shadow-lg">
-      {/* Search Icon */}
-      <TouchableOpacity className="mr-2 absolute right-14">
-        <Image
-          source={searchIcon}
-          style={{ width: 20, height: 20 }} // Adjust icon size as needed
-        />
-      </TouchableOpacity>
+    <View className="flex-row items-center px-4 py-2 rounded-full bg-white shadow-sm border border-gray-200">
 
-      {/* Search Input */}
+      {voiceIcon && (
+        <TouchableOpacity
+          className="m-2"
+          onPress={() => console.log("Voice search pressed")}
+        >
+          <Image source={voiceIcon} style={{ width: 20, height: 20 }} />
+        </TouchableOpacity>
+      )}
+      {/* Search Input */}˝
       <TextInput
-        className="flex-1 p-3 border border-gray-200 rounded-full text-typography-800 min-h-14"
+        className="flex-1 text-base text-typography-800"
         placeholder={placeholder}
         value={searchText}
         onChangeText={handleSearchTextChange}
+        placeholderTextColor="#999"
       />
-
+      {/* Search Icon */}
+      <Image
+        source={searchIcon}
+        style={{ width: 20, height: 20, marginRight: 8 }}
+      />
       {/* Clear Icon */}
-      {searchText.length > 0 && (
-        <TouchableOpacity className="ml-2" onPress={clearSearch}>
-          <Image
-            source={clearIcon}
-            style={{ width: 20, height: 20 }} // Adjust icon size as needed
-          />
-        </TouchableOpacity>
-      )}
-
-      {/* Voice Icon */}
-      <TouchableOpacity
-        className="ml-2 absolute right-8"
-        onPress={() => console.log("pressed")}
-      >
-        <Image
-          source={voiceIcon}
-          style={{ width: 20, height: 20 }} // Adjust icon size as needed
-        />
+      <TouchableOpacity onPress={clearSearch} className="ml-2">
+        <Image source={clearIcon} style={{ width: 20, height: 20 }} />
       </TouchableOpacity>
     </View>
   );

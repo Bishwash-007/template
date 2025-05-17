@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { View, Text, TextInput, TextInputProps, TouchableOpacity, Image } from "react-native";
 
 interface InputFieldProps extends TextInputProps {
-  label: string; // Label for the input field
-  placeholder: string; // Placeholder text for the input field
-  errorMessage?: string; // Optional error message
-  helperText?: string; // Optional helper text for guidance
-  isSecure?: boolean; // Optional flag for password input (e.g., to toggle visibility)
-  eyeIcon?: any; // Custom eye icon
-  eyeSlashIcon?: any; // Custom eye-slash icon
+  label: string; 
+  placeholder: string; 
+  errorMessage?: string;
+  helperText?: string; 
+  isSecure?: boolean; 
+  eyeIcon?: any;
+  eyeSlashIcon?: any; 
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -23,7 +23,6 @@ const InputField: React.FC<InputFieldProps> = ({
 }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(isSecure);
 
-  // Toggle password visibility
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
@@ -38,8 +37,8 @@ const InputField: React.FC<InputFieldProps> = ({
         <TextInput
           className="p-3 border border-gray-100 rounded-3xl min-h-14 w-full text-typography-800"
           placeholder={placeholder}
-          secureTextEntry={isPasswordVisible} // Use state to control visibility
-          {...rest} // Spread any other props like value, onChange, etc.
+          secureTextEntry={isPasswordVisible} 
+          {...rest}
         />
         
         {/* Custom Eye Icon for password visibility toggle */}
@@ -50,7 +49,7 @@ const InputField: React.FC<InputFieldProps> = ({
           >
             <Image
               source={isPasswordVisible ? eyeSlashIcon : eyeIcon}
-              style={{ width: 20, height: 20 }} // Adjust size as necessary
+              style={{ width: 20, height: 20 }}
             />
           </TouchableOpacity>
         )}

@@ -19,26 +19,21 @@ const Index = () => {
       setPasswordError("");
     }
     setPasswordState(text);
-    // setPasswordState(text);
   }
 
   function handleSearch(searchText: string): void {
     console.log("Search Text:", searchText);
-    // Handle search query here (e.g., filter data, make an API call)
   }
 
   return (
     <SafeAreaView>
       <ScrollView>
         <View>
-          <Text className="text-center font-semibold text-2xl text-red-600">
-            Welcome to the Index Page
-          </Text>
           <SearchBar
             placeholder="Search books, authors, etc."
             searchIcon={Icons.searchNormal}
-            clearIcon={Icons.cross}
             voiceIcon={Icons.Mic}
+            clearIcon={Icons.cross}
             onSearch={handleSearch}
           />
         </View>
@@ -69,18 +64,8 @@ const Index = () => {
           />
         </View>
         <View className="flex flex-row gap-2 justify-start m-2">
-          <CustomButton
-            title="View All Products"
-            onPress={() => {
-              // Navigate to the product list page
-            }}
-          />
-          <CustomButton
-            title="View All Products"
-            onPress={() => {
-              // Navigate to the product list page
-            }}
-          />
+          <CustomButton title="View All Products" onPress={() => {}} />
+          <CustomButton title="View All Products" onPress={() => {}} />
         </View>
         <View>
           <InputField
@@ -102,7 +87,7 @@ const Index = () => {
         </View>
         <ListItem
           title="Account Settings"
-          iconSource={require("../assets/icons/setting-3.png")} // Example icon source
+          iconSource={require("../assets/icons/setting-3.png")}
           onPress={() => {
             console.log("Account settings clicked!");
           }}
@@ -110,11 +95,12 @@ const Index = () => {
 
         <ListItem
           title="Notifications"
-          iconSource={require("../assets/icons/notification-bing.png")} // Example icon source
+          iconSource={require("../assets/icons/notification-bing.png")}
           onPress={() => {
             console.log("Notifications clicked!");
           }}
         />
+        
       </ScrollView>
     </SafeAreaView>
   );

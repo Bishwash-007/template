@@ -1,4 +1,3 @@
-// Import icons from the ../assets/icons folder
 import addCircle from '../assets/icons/add-circle.png';
 import archiveTick from '../assets/icons/archive-tick.png';
 import closeCircle from '../assets/icons/close-circle.png';

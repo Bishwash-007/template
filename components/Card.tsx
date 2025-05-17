@@ -3,15 +3,15 @@ import { View, Text, TouchableOpacity, Image, ImageSourcePropType } from "react-
 import { useRouter } from "expo-router";
 
 interface CardProps {
-  title: string; // Title of the card
-  subtitle?: string; // Subtitle (e.g., author, description)
-  imageSource: ImageSourcePropType; // Image for the card
-  targetRoute: string; // Route to navigate when the card is clicked
-  paramKey?: string; // Parameter key for dynamic routing
-  paramValue?: string | number; // Parameter value for dynamic routing
-  rating?: number; // Optional rating (e.g., 4.5 stars)
-  reviewCount?: number; // Optional review count
-  footerText?: string; // Optional footer text for additional information
+  title: string; 
+  subtitle?: string; 
+  imageSource: ImageSourcePropType; 
+  targetRoute: string; 
+  paramKey?: string; 
+  paramValue?: string | number; 
+  rating?: number; 
+  reviewCount?: number; 
+  footerText?: string; 
 }
 
 const Card: React.FC<CardProps> = ({
@@ -27,7 +27,6 @@ const Card: React.FC<CardProps> = ({
 }) => {
   const router = useRouter();
 
-  // Navigate to the target route
   const redirectToTargetRoute = () => {
     if (paramKey && paramValue) {
       router.push({

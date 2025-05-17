@@ -1,10 +1,10 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
+import { Text, TouchableOpacity, Image } from "react-native";
 
 interface ListItemProps {
-  title: string; // Title to display in the center
-  iconSource: any; // Source of the icon image (e.g., from assets)
-  onPress: () => void; // Function to handle press action
+  title: string;  
+  iconSource: any; 
+  onPress: () => void;  
 }
 
 const ListItem: React.FC<ListItemProps> = ({ title, iconSource, onPress }) => {
@@ -18,6 +18,7 @@ const ListItem: React.FC<ListItemProps> = ({ title, iconSource, onPress }) => {
       <Image source={iconSource} className="w-6 h-6 mr-3" />
 
       {/* Title in the center */}
+      
     </TouchableOpacity>
   );
 };
