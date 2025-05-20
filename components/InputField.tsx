@@ -1,14 +1,19 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TextInputProps, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TextInputProps,
+  TouchableOpacity,
+} from "react-native";
+import { Eye, EyeOff } from "lucide-react-native";
 
 interface InputFieldProps extends TextInputProps {
-  label: string; 
-  placeholder: string; 
+  label: string;
+  placeholder: string;
   errorMessage?: string;
-  helperText?: string; 
-  isSecure?: boolean; 
-  eyeIcon?: any;
-  eyeSlashIcon?: any; 
+  helperText?: string;
+  isSecure?: boolean;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -17,8 +22,6 @@ const InputField: React.FC<InputFieldProps> = ({
   errorMessage,
   helperText,
   isSecure = false,
-  eyeIcon,
-  eyeSlashIcon,
   ...rest
 }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(isSecure);
@@ -35,22 +38,19 @@ const InputField: React.FC<InputFieldProps> = ({
       {/* Input Field */}
       <View className="relative">
         <TextInput
-          className="p-3 border border-gray-100 rounded-3xl min-h-14 w-full text-typography-800"
+          className="p-3 border border-gray-100 rounded-3xl min-h-14 w-full text-typography-800 pr-10"
           placeholder={placeholder}
-          secureTextEntry={isPasswordVisible} 
+          secureTextEntry={isPasswordVisible}
           {...rest}
         />
-        
-        {/* Custom Eye Icon for password visibility toggle */}
+
+        {/* Eye icon toggle */}
         {isSecure && (
           <TouchableOpacity
-            className="absolute right-3 top-1/2 transform -translate-y-1/2"
+            className="absolute right-3 top-1/2 -translate-y-1/2"
             onPress={togglePasswordVisibility}
           >
-            <Image
-              source={isPasswordVisible ? eyeSlashIcon : eyeIcon}
-              style={{ width: 20, height: 20 }}
-            />
+            {isPasswordVisible ? <EyeOff size={20} /> : <Eye size={20} />}
           </TouchableOpacity>
         )}
       </View>

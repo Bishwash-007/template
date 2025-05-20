@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "template",
-    "slug": "template",
+    "name": "chatgpt",
+    "slug": "chatgpt",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/adaptive-icon.png",
-    "scheme": "template",
+    "scheme": "chatgpt",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
